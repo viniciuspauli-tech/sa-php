@@ -55,7 +55,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </form>
     <hr>
     <?php
-    // Exibe erro se as credenciais forem inválidas
+    
     include("components/table.php")
 
     ?>
