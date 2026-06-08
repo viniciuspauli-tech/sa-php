@@ -1,12 +1,12 @@
-# 🔐 Sistema de Gerenciamento de Usuários — sa-php
+#  Sistema de Gerenciamento de Usuários — sa-php
 
-## 📌 Objetivo do Sistema
+##  Objetivo do Sistema
 
 O **sa-php** é uma aplicação web desenvolvida em PHP puro com banco de dados MySQL que implementa um sistema completo de autenticação e gerenciamento de usuários. O sistema permite que um administrador faça login, cadastre novos usuários, edite informações existentes e exclua registros, tudo com controle de sessão para garantir que apenas usuários autenticados acessem as páginas protegidas.
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+##  Tecnologias Utilizadas
 
 | Tecnologia | Versão Recomendada | Finalidade |
 |---|---|---|
@@ -18,7 +18,7 @@ O **sa-php** é uma aplicação web desenvolvida em PHP puro com banco de dados 
 
 ---
 
-## 📁 Estrutura de Pastas
+##  Estrutura de Pastas
 
 ```
 sa-php/
@@ -41,40 +41,40 @@ sa-php/
 
 ---
 
-## ⚙️ Funcionalidades
+##  Funcionalidades
 
-### 🔑 Login (`index.php`)
+###  Login (`index.php`)
 - Formulário com campos de **usuário** e **senha**
 - Autenticação via consulta no banco de dados
 - Utiliza `session_start()` para iniciar e manter a sessão do usuário autenticado
 - Redireciona para `public/home.php` após login bem-sucedido
 - Exibe mensagem de erro em caso de credenciais inválidas
 
-### 🏠 Página Principal (`public/home.php`)
+###  Página Principal (`public/home.php`)
 - Verifica se o usuário está logado via `$_SESSION`; caso contrário, redireciona para o login
 - Exibe mensagem de boas-vindas com o nome do usuário logado
 - Formulário de **cadastro de novo usuário** (nome e senha) via POST
 - Lista todos os usuários cadastrados através do componente `table.php`
 - Link para logout
 
-### ✏️ Editar Usuário (`public/editar.php`)
+###  Editar Usuário (`public/editar.php`)
 - Recebe o `id` do usuário via parâmetro GET (`?id=X`)
 - Busca os dados atuais do usuário no banco de dados
 - Exibe formulário pré-preenchido com nome e senha do usuário
 - Ao submeter, executa `UPDATE` no banco e redireciona para `home.php`
 - Protegido por verificação de sessão
 
-### 🗑️ Excluir Usuário (`public/excluir.php`)
+###  Excluir Usuário (`public/excluir.php`)
 - Recebe o `id` do usuário via parâmetro GET (`?id=X`)
 - Executa `DELETE` no banco de dados
 - Redireciona automaticamente para `home.php` após a exclusão
 - Protegido por verificação de sessão
 
-### 🚪 Logout (`public/logout.php`)
+###  Logout (`public/logout.php`)
 - Destrói a sessão com `session_destroy()`
 - Redireciona o usuário para a tela de login
 
-### 📋 Tabela de Usuários (`public/components/table.php`)
+###  Tabela de Usuários (`public/components/table.php`)
 - Componente reutilizável incluído na `home.php`
 - Consulta todos os usuários da tabela `usuarios`
 - Exibe: ID, Nome do Usuário, Senha, e botões de ação (Editar / Excluir)
@@ -82,7 +82,7 @@ sa-php/
 
 ---
 
-## 🚀 Melhorias Implementadas
+##  Melhorias Implementadas
 
 As seguintes melhorias foram identificadas e/ou aplicadas em relação a uma implementação básica inicial:
 
@@ -96,11 +96,11 @@ As seguintes melhorias foram identificadas e/ou aplicadas em relação a uma imp
 
 5. **Script SQL documentado** — O arquivo `infra/db/script.sql` contém os comandos completos para criação do banco, tabela e inserção de um usuário padrão (`admin/123`), facilitando o setup do ambiente.
 
-> ⚠️ **Pontos de atenção para produção:** O sistema em seu estado atual utiliza queries SQL sem prepared statements (vulnerável a SQL Injection) e armazena senhas em texto puro. Para uso em produção, recomenda-se usar `PDO` com prepared statements e `password_hash()` / `password_verify()` para as senhas.
+>  **Pontos de atenção para produção:** O sistema em seu estado atual utiliza queries SQL sem prepared statements (vulnerável a SQL Injection) e armazena senhas em texto puro. Para uso em produção, recomenda-se usar `PDO` com prepared statements e `password_hash()` / `password_verify()` para as senhas.
 
 ---
 
-## ▶️ Instruções para Execução
+##  Instruções para Execução
 
 ### Pré-requisitos
 
@@ -178,6 +178,4 @@ http://localhost/sa-php/
 
 ---
 
-## 📄 Licença
-
-Projeto desenvolvido para fins educacionais.
+##  Licença
